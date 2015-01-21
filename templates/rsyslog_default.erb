@@ -2,7 +2,9 @@
 
 <% if @rsyslog_version and @rsyslog_version.split('.')[0].to_i < 7 -%>
 # Debian, Ubuntu
-RSYSLOGD_OPTIONS="-c4"
+RSYSLOGD_OPTIONS="-c4<%= @dns_config_setting %>"
+<% else -%>
+RSYSLOGD_OPTIONS="-c4<%= @dns_config_setting %>"
 <% end -%>
 
 # CentOS, RedHat, Fedora
