@@ -10,7 +10,16 @@
 #
 #  class { 'rsyslog::config': }
 #
-class rsyslog::config {
+class rsyslog::config (
+  $disable_dns = undef,
+  ) {
+
+  if $disable_dns == true {
+    $dns_config_setting = ' -x'
+  } else {
+    $dns_config_setting = undef
+  }
+
   file { $rsyslog::rsyslog_d:
     ensure  => directory,
     owner   => 'root',

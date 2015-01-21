@@ -13,4 +13,4 @@ PIDFILE="/var/run/rsyslogd.pid"
 # Notes:
 # * Do not specify another PIDFILE but use the variable above to change the location
 # * Do not specify another CONFIGFILE but use the variable above to change the location
-RSYSLOG_OPTS=""
+RSYSLOG_OPTS="<%= @dns_config_setting %>"
